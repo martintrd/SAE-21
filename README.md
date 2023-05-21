@@ -27,7 +27,7 @@
 - Pour la maquette j'ai décidé de reprendre la confguration qui m'avais été donné dans le sujet de la SAE. Mon réseau interne est donc colorié en fonction des différent services (commercial, adminsitratif et technique). J'ai connecté la majorité des équipements avec des liens 'Copper Straight-Through', mais sur le réseau opérateur et entre les deux switchs de mon réseau interne j'ai mis des câbles 'Copper Cross-Over' afin de permettre la communication entre les routeurs et switchs.
 
 <div align="center">
-    <img src="réseau.jpg" width="700px">
+    <img src="img/réseau.jpg" width="700px">
 </div>
 
 <br>
@@ -50,19 +50,19 @@
 2. Dans Config>Settings rentrer l'adresse de la passerelle ainsi que l'adresse du DNS :
 
 <div align="left" style="padding-left:50px;">
-    <img src="serveur_WEB_1.jpg" width="400px">
+    <img src="img/serveur_WEB_1.jpg" width="400px">
 </div>
 
 3. Dans Config>{nom de l'interface connectée}(FastEthernet0) rentrer l'adresse de l'équipement ainsi que son masque de sous réseau :
 
 <div align="left" style="padding-left:50px;">
-    <img src="serveur_WEB_2.jpg" width="400px">
+    <img src="img/serveur_WEB_2.jpg" width="400px">
 </div>
 
 La configuration est la même pour les deux autres équipements juste en changeant l'adresse IPv4 de chacun.
 
 <div align="left" style="padding-left:50px;">
-    <img src="DMZ_1.jpg" width="400px">
+    <img src="img/DMZ_1.jpg" width="400px">
 </div>
 
 <br>
@@ -77,7 +77,7 @@ La configuration est la même pour les deux autres équipements juste en changea
 La configuration ressemble donc à ça :
 
 <div align="left" style="padding-left:50px;">
-    <img src="réseau_opérateur_1.jpg" width="400px">
+    <img src="img/réseau_opérateur_1.jpg" width="400px">
 </div>
 
 <br>
@@ -117,7 +117,7 @@ La configuration ressemble donc à ça :
 <br>
 
 <div align="center">
-    <img src="switch_1.jpg" width="600px">
+    <img src="img/switch_1.jpg" width="600px">
 </div>
 
 <br>
@@ -127,7 +127,7 @@ La configuration ressemble donc à ça :
 <br>
 
 <div align="center">
-    <img src="switch_2.jpg" width="600px">
+    <img src="img/switch_2.jpg" width="600px">
 </div>
 
 <br>
@@ -148,13 +148,13 @@ J'ai dans un premier temps accédé à la VLAN database située dans Config>Swit
 <br>
 
 <div align="center">
-    <img src="VLAN_10.jpg" height="75px">
-    <img src="VLAN_20.jpg" height="75px">
+    <img src="img/VLAN_10.jpg" height="75px">
+    <img src="img/VLAN_20.jpg" height="75px">
 </div>
 
 <div align="center">
-    <img src="VLAN_30.jpg" height="73px">
-    <img src="VLAN_40.jpg" height="73px">
+    <img src="img/VLAN_30.jpg" height="73px">
+    <img src="img/VLAN_40.jpg" height="73px">
 </div>
 
 <br>
@@ -317,28 +317,16 @@ On passe maintenant à la configuration du routeur :
 - Pour le DNS on clique sur le serveur DNS et on va dans Services>DNS. On rentre ensuite la configuration suivante :
 
 <div align="center">
-    <img src="DNS.jpg" width="600px">
+    <img src="img/DNS.jpg" width="600px">
 </div>
 
-- 200.0.0.1 est l'adresse du serveur WEB externe et flopland.fr est le nom de domaine. Pour le serveur WEB
-
 <br>
 
----
-
-<br>
-
-## Configuration des serveurs DNS et WEB
-
-<br>
-
-- Pour le DNS on clique sur le serveur DNS et on va dans Services>DNS. On rentre ensuite la configuration suivante :
+- 200.0.0.1 est l'adresse du serveur WEB externe et flopland.fr est le nom de domaine. Pour le serveur WEB on va dans Services>HTTP et on active le 
 
 <div align="center">
-    <img src="DNS.jpg" width="600px">
+    <img src="img/WEB.jpg" width="600px">
 </div>
-
-- 200.0.0.1 est l'adresse du serveur WEB externe et flopland.fr est le nom de domaine.
 
 <br><br><br>
 
