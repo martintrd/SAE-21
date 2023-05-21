@@ -108,7 +108,7 @@ La configuration ressemble donc à ça :
 
 <br>
 
-## Configuration des VLANs
+## Configuration des VLANs <a id="4"></a>
 
 <br>
 
@@ -210,7 +210,7 @@ On passe maintenant à la configuration du routeur :
 
 <br>
 
-## Configuration du DHCP
+## Configuration du DHCP <a id="5"></a>
 
 <br>
 
@@ -244,7 +244,7 @@ On passe maintenant à la configuration du routeur :
 
 <br>
 
-## Mise en place d'OSPF
+## Mise en place d'OSPF <a id="6"></a>
 
 <br>
 
@@ -277,7 +277,7 @@ On passe maintenant à la configuration du routeur :
 
 <br>
 
-## Mise en place du NAT
+## Mise en place du NAT <a id="7"></a>
 
 <br>
 
@@ -310,7 +310,7 @@ On passe maintenant à la configuration du routeur :
 
 <br>
 
-## Configuration des serveurs DNS et WEB
+## Configuration des serveurs DNS et WEB <a id="8"></a>
 
 <br>
 
@@ -334,7 +334,7 @@ On passe maintenant à la configuration du routeur :
 
 <br>
 
-## Gestion des ACLs
+## Gestion des ACLs <a id="9"></a>
 
 <br>
 
@@ -373,17 +373,6 @@ On passe maintenant à la configuration du routeur :
             Router(config-ext-nacl)#permit icmp 10.30.0.0 0.0.255.255 10.20.0.0 0.0.255.255 echo-reply
             Router(config-ext-nacl)#permit icmp any any
             Router(config-ext-nacl)#permit ip any any
-    
-    - j'ai également rajouté les lignes suivantes :
-
-            Router#conf t
-            Router(config)#access-list 10 permit 10.0.0.0 0.255.255.255
-            Router(config)#access-list 10 permit 10.10.0.0 0.0.255.255
-            Router(config)#access-list 20 permit 10.20.0.0 0.0.255.255
-            Router(config)#access-list 30 permit 10.30.0.0 0.0.255.255
-            Router(config)#access-list 50 permit any
-
-
 
 <br><br><br>
 
@@ -397,6 +386,11 @@ On passe maintenant à la configuration du routeur :
 
 - Pour tester que mon réseau fonctionnait correctement j'ai réalisé des tests de fonctionnement. Voici la liste :
 
-    - ping les PC d'un même VLAN pour voir si la communication est possible dans un même VLAN (ok)
-    - ping 200.0.0.254 depuis le VLAN 20 pour voir si le service technique ne peut pas sortir du réseau local (ok)
-    - ping les autres VLANs depuis le VLAN 20 pour vérifier que le service technique a accès à tout le réseau interne (ok)
+    - ping les PC d'un même VLAN pour voir si la communication est possible dans un même VLAN (ok),
+    - ping 200.0.0.254 depuis le VLAN 20 pour voir si le service technique ne peut pas sortir du réseau local (ok),
+    - ping les autres VLANs depuis le VLAN 20 pour vérifier que le service technique a accès à tout le réseau interne (ok),
+    - ping le serveur représentant internet (192.168.1.1) depuis le VLAN 10 ou le VLAN 30 pour voir si ils ont accès à l'extérieur (ok),
+    - prendre un appareil du VLAN 10 ou du VLAN 30 pour voir si on peut accéder au serveur WEB externe (200.0.0.1) en tapant l'adresse flopland.fr, fournie par le DNS, sur un navigateur (ok),
+    - ping le serveur WEB interne depuis n'importe quel VLAN pour voir si il est accessible à tout le réseau interne (ok)
+    - essayer de relancer le dhcp depuis un appareil du réseau interne pour voir si le dhcp distribue correctement les adresses (ok),
+    - essayer de ping depuis l'extérieur vers le réseau interne pour voir si les paquet ne peuvent pas rentrer (pas ok)
