@@ -50,13 +50,13 @@
 2. Dans Config>Settings rentrer l'adresse de la passerelle ainsi que l'adresse du DNS :
 
 <div align="left" style="padding-left:50px;">
-    <img src="img/serveur_WEB_1.jpg" width="400px">
+    <img src="img/Serveur_WEB_1.jpg" width="400px">
 </div>
 
 3. Dans Config>{nom de l'interface connectée}(FastEthernet0) rentrer l'adresse de l'équipement ainsi que son masque de sous réseau :
 
 <div align="left" style="padding-left:50px;">
-    <img src="img/serveur_WEB_2.jpg" width="400px">
+    <img src="img/Serveur_WEB_2.jpg" width="400px">
 </div>
 
 La configuration est la même pour les deux autres équipements juste en changeant l'adresse IPv4 de chacun.
@@ -127,7 +127,7 @@ La configuration ressemble donc à ça :
 <br>
 
 <div align="center">
-    <img src="img/switch_2.jpg" width="600px">
+    <img src="img/switch_2.JPG" width="600px">
 </div>
 
 <br>
@@ -149,12 +149,12 @@ J'ai dans un premier temps accédé à la VLAN database située dans Config>Swit
 
 <div align="center">
     <img src="img/VLAN_10.jpg" height="75px">
-    <img src="img/VLAN_20.jpg" height="75px">
+    <img src="img/VLAN_20.JPG" height="75px">
 </div>
 
 <div align="center">
-    <img src="img/VLAN_30.jpg" height="73px">
-    <img src="img/VLAN_40.jpg" height="73px">
+    <img src="img/VLAN_30.JPG" height="73px">
+    <img src="img/VLAN_40.JPG" height="73px">
 </div>
 
 <br>
@@ -317,7 +317,7 @@ On passe maintenant à la configuration du routeur :
 - Pour le DNS on clique sur le serveur DNS et on va dans Services>DNS. On rentre ensuite la configuration suivante :
 
 <div align="center">
-    <img src="img/DNS.jpg" width="600px">
+    <img src="img/DNS.JPG" width="600px">
 </div>
 
 <br>
@@ -325,7 +325,7 @@ On passe maintenant à la configuration du routeur :
 - 200.0.0.1 est l'adresse du serveur WEB externe et flopland.fr est le nom de domaine. Pour le serveur WEB on va dans Services>HTTP et on active le 
 
 <div align="center">
-    <img src="img/WEB.jpg" width="600px">
+    <img src="img/WEB.JPG" width="600px">
 </div>
 
 <br><br><br>
