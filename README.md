@@ -24,7 +24,7 @@
 
 <br>
 
-- Pour la maquette j'ai décidé de reprendre la confguration qui m'avais été donné dans le sujet de la SAE. Mon réseau interne est donc colorié en fonction des différent services (commercial, adminsitratif et technique). J'ai connecté la majorité des équipements avec des liens 'Copper Straight-Through', mais sur le réseau opérateur et entre les deux switchs de mon réseau interne j'ai mis des câbles 'Copper Cross-Over' afin de permettre la communication entre les routeurs et switchs.
+- Pour la maquette j'ai décidé de reprendre la configuration qui m'avais été donné dans le sujet de la SAE. Mon réseau interne est donc colorié en fonction des différent services (commercial, adminsitratif et technique). J'ai connecté la majorité des équipements avec des liens 'Copper Straight-Through', mais sur le réseau opérateur et entre les deux switchs de mon réseau interne j'ai mis des câbles 'Copper Cross-Over' afin de permettre la communication entre les routeurs et switchs.
 
 <div align="center">
     <img src="img/réseau.jpg" width="700px">
