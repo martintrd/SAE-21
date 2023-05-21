@@ -393,4 +393,5 @@ On passe maintenant à la configuration du routeur :
     - prendre un appareil du VLAN 10 ou du VLAN 30 pour voir si on peut accéder au serveur WEB externe (200.0.0.1) en tapant l'adresse flopland.fr, fournie par le DNS, sur un navigateur (ok),
     - ping le serveur WEB interne depuis n'importe quel VLAN pour voir si il est accessible à tout le réseau interne (ok)
     - essayer de relancer le dhcp depuis un appareil du réseau interne pour voir si le dhcp distribue correctement les adresses (ok),
-    - essayer de ping depuis l'extérieur vers le réseau interne pour voir si les paquet ne peuvent pas rentrer (pas ok)
+    - faire un show ip database pour vérifier que tous les routeurs sont bien configurés en OSPF (ok),
+    - essayer de ping depuis l'extérieur vers le réseau interne pour voir si les paquet ne peuvent pas rentrer (pas ok).
