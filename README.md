@@ -322,11 +322,68 @@ On passe maintenant à la configuration du routeur :
 
 <br>
 
-- 200.0.0.1 est l'adresse du serveur WEB externe et flopland.fr est le nom de domaine. Pour le serveur WEB on va dans Services>HTTP et on active le 
+- 200.0.0.1 est l'adresse du serveur WEB externe et flopland.fr est le nom de domaine. Pour le serveur WEB on va dans Services>HTTP et on active le HTTP et le HTTPS :
 
 <div align="center">
     <img src="img/WEB.JPG" width="600px">
 </div>
+
+<br>
+
+---
+
+<br>
+
+## Gestion des ACLs
+
+<br>
+
+- Les ACLs sont situés au niveau du routeur du réseau interne. Je vais sectionner cette configuration en 3 parties qui représentent les 3 VLANs ayant des interdictions et permissions :
+
+    - service commercial :
+
+            Router#conf t
+            Router(config)#ip access-list extended commercial
+            Router(config-ext-nacl)#deny icmp 10.10.0.0 0.0.255.255 10.20.0.0 0.0.255.255 echo
+            Router(config-ext-nacl)#permit udp any eq bootpc any eq bootps 
+            Router(config-ext-nacl)#permit udp any eq bootps any eq bootpc (ces deux lignes servent pour le DHCP)
+            Router(config-ext-nacl)#permit icmp 10.10.0.0 0.0.255.255 10.20.0.0 0.0.255.255 echo-reply
+            Router(config-ext-nacl)#deny icmp 10.10.0.0 0.0.255.255 10.30.0.0 0.0.255.255 echo
+            Router(config-ext-nacl)#permit icmp any any
+            Router(config-ext-nacl)#permit ip any any
+    
+    - service technique :
+
+            Router#conf t
+            Router(config)#ip access-list extended technique
+            Router(config-ext-nacl)#permit icmp 10.20.0.0 0.0.255.255 10.10.0.0 0.0.255.255 echo
+            Router(config-ext-nacl)#permit udp any eq bootpc any eq bootps
+            Router(config-ext-nacl)#permit udp any eq bootps any eq bootpc
+            Router(config-ext-nacl)#permit icmp 10.20.0.0 0.0.255.255 10.30.0.0 0.0.255.255 echo
+            Router(config-ext-nacl)#permit icmp 10.20.0.0 0.0.255.255 10.40.0.0 0.0.255.255 echo
+    
+    - service administratif :
+
+            Router#conf t
+            Router(config)#ip access-list extended administratif
+            Router(config-ext-nacl)#deny icmp 10.30.0.0 0.0.255.255 10.10.0.0 0.0.255.255 echo
+            Router(config-ext-nacl)#deny icmp 10.30.0.0 0.0.255.255 10.20.0.0 0.0.255.255 echo
+            Router(config-ext-nacl)#permit udp any eq bootpc any eq bootps
+            Router(config-ext-nacl)#permit udp any eq bootps any eq bootpc
+            Router(config-ext-nacl)#permit icmp 10.30.0.0 0.0.255.255 10.20.0.0 0.0.255.255 echo-reply
+            Router(config-ext-nacl)#permit icmp any any
+            Router(config-ext-nacl)#permit ip any any
+    
+    - j'ai également rajouté les lignes suivantes :
+
+            Router#conf t
+            Router(config)#access-list 10 permit 10.0.0.0 0.255.255.255
+            Router(config)#access-list 10 permit 10.10.0.0 0.0.255.255
+            Router(config)#access-list 20 permit 10.20.0.0 0.0.255.255
+            Router(config)#access-list 30 permit 10.30.0.0 0.0.255.255
+            Router(config)#access-list 50 permit any
+
+
 
 <br><br><br>
 
@@ -335,3 +392,11 @@ On passe maintenant à la configuration du routeur :
 <br>
 
 ## Vérification de fonctionnement
+
+<br>
+
+- Pour tester que mon réseau fonctionnait correctement j'ai réalisé des tests de fonctionnement. Voici la liste :
+
+    - ping les PC d'un même VLAN pour voir si la communication est possible dans un même VLAN (ok)
+    - ping 200.0.0.254 depuis le VLAN 20 pour voir si le service technique ne peut pas sortir du réseau local (ok)
+    - ping les autres VLANs depuis le VLAN 20 pour vérifier que le service technique a accès à tout le réseau interne (ok)
