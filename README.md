@@ -171,8 +171,8 @@ J'ai dans un premier temps accédé à la VLAN database située dans Config>Swit
 
         Switch#conf t
         Switch(config)#interface {nom de l'interface que l'on veut connecter au VLAN10}(fa0/1)
-        Router(config-if)#switchport access vlan {id du vlan}(10)
-        Router(config-if)#no shut
+        Switch(config-if)#switchport access vlan {id du vlan}(10)
+        Switch(config-if)#no shut
 
 <br>
 
@@ -184,8 +184,8 @@ J'ai dans un premier temps accédé à la VLAN database située dans Config>Swit
 
         Switch#conf t
         Switch(config)#interface {nom de l'interface que l'on veut connecter en trunk}(fa0/5)
-        Router(config-if)#switchport mode trunk
-        Router(config-if)#no shut
+        Switch(config-if)#switchport mode trunk
+        Switch(config-if)#no shut
 
 <br>
 
